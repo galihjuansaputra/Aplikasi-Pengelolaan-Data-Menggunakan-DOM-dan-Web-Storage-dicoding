@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+}
+
+body{
+    color: white;
+    background-color: #06163d;
+}
+
+.container {
+    background-color: #002174;
+    text-align: center;
+    padding: 32px;
+}
+
+.container p {
+    margin-top: 8px;
+}
+
+.flex-container {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+  }
+  
+  .flex-one {
+    background-color: #47B5FF;
+    padding: 32px;
+    flex: 25%;
+  }
+  
+  .flex-two {
+    background-color: dodgerblue;
+    padding: 32px;
+    flex: 25%;
+  }
+
+  .flex-three {
+    background-color: #47B5FF;
+    padding: 32px;
+    flex: 25%;
+  }
+  
+  .flex-four {
+    background-color: dodgerblue;
+    padding: 32px;
+    flex: 25%;
+  }
+
+  @media (max-width: 800px) {
+    .flex-container {
+      flex-direction: column;
+    }
+  }
+
+footer {
+    text-align: center;
+    background-color: #002174;
+    padding: 20px;
+    margin-top: 32px;
+}
