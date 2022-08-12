@@ -82,7 +82,7 @@ form .input .box{
 }
 
 form .submit {
-    
+    font-weight: bolder;
     margin-top: 20px;
     width: 50%;
     border-radius:5px;
@@ -90,18 +90,67 @@ form .submit {
     padding: 10px;
     text-decoration:none;
     cursor: pointer;
+}
 
+form .submit:hover {
+    background-color: rgb(220, 220, 220);
 }
 
 form .search {
-    
+    font-weight: bolder;
     margin-top: 20px;
     border-radius:5px;
     border: none;
     padding: 10px;
     text-decoration:none;
     cursor: pointer;
+}
 
+form .search:hover{
+    background-color: rgb(220, 220, 220);
+}
+
+
+.book{
+    text-align: center;
+}
+
+.book h2{
+    margin-top: 20px;
+}
+
+.book p{
+    margin-top: 10px;
+}
+
+.mark {
+    font-weight: bolder;
+    color: green;
+    margin-top: 10px;
+    border-radius:5px;
+    border: none;
+    padding: 10px;
+    text-decoration:none;
+    cursor: pointer;
+}
+
+.mark:hover{
+    background-color: rgb(220, 220, 220);
+}
+
+.delete {
+    font-weight: bolder;
+    color: red;
+    margin-top: 10px;
+    border-radius:5px;
+    border: none;
+    padding: 10px;
+    text-decoration:none;
+    cursor: pointer;
+}
+
+.delete:hover{
+    background-color: rgb(220, 220, 220);
 }
 
 
