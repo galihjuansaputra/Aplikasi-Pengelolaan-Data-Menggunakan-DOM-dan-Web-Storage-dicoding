@@ -1,8 +1,10 @@
+
 *{
     margin: 0;
 }
 
 body{
+    font-family: sans-serif;
     color: white;
     background-color: #06163d;
 }
@@ -16,6 +18,10 @@ body{
 .container p {
     margin-top: 8px;
 }
+
+.flex-container p {
+    margin-top: 24px;
+  }
 
 .flex-container {
     margin-top: 32px;
