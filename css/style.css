@@ -9,6 +9,10 @@ body{
     background-color: #06163d;
 }
 
+hr{
+    border: solid 1px white;
+}
+
 .container {
     background-color: #002174;
     text-align: center;
@@ -60,9 +64,11 @@ body{
     }
   }
 
-
 form .input {
     margin-top: 20px;
+}
+
+form label {
     font-weight: bolder;
 }
 
@@ -83,6 +89,7 @@ form .submit {
     border: none;
     padding: 10px;
     text-decoration:none;
+    cursor: pointer;
 
 }
 
@@ -93,6 +100,7 @@ form .search {
     border: none;
     padding: 10px;
     text-decoration:none;
+    cursor: pointer;
 
 }
 
