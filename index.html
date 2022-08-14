@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,68 +18,72 @@
             <p>Aplikasi Pengelolaan Data Menggunakan DOM dan Web Storage</p>
         </div>
     </header>
-    
+
     <main>
         <div class="flex-container">
 
             <div class="flex-one">
-                <h2>Menambahkan Data Buku</h2><br><hr>
+                <h2>Menambahkan Data Buku</h2><br>
+                <hr>
                 <form>
                     <div class="input">
-                      <label>Judul</label><br>
-                      <input class="box" type="text" required="">
+                        <label>Judul</label><br>
+                        <input class="box" type="text" required="">
                     </div>
                     <div class="input">
-                      <label>Penulis</label><br>
-                      <input class="box" type="text" required="">
+                        <label>Penulis</label><br>
+                        <input class="box" type="text" required="">
                     </div>
                     <div class="input">
-                      <label>Tahun</label><br>
-                      <input class="box" type="number" required="">
+                        <label>Tahun</label><br>
+                        <input class="box" type="number" required="">
                     </div><br>
                     <div>
-                      <label>Selesai dibaca</label>
-                      <input type="checkbox">
+                        <label for="mark" >Selesai dibaca</label>
+                        <input id="mark" type="checkbox">
                     </div>
-                    <button  class="submit" type="submit">Masukkan Data Buku</button>
-                  </form>
+                    <button class="submit" type="submit">Masukkan Data Buku</button>
+                </form>
             </div>
 
             <div class="flex-two">
-                <h2>Belum Selesai Dibaca</h2><br><hr>
+                <h2>Belum Selesai Dibaca</h2><br>
+                <hr>
 
                 <div id="dataBuku" class="book">
                     <h2>Judul Buku</h2>
                     <p>Penulis: Penulis Buku</p>
                     <p>Tahun: 2000</p>
                     <button id="tandai" class="mark">Tandai Selesai Dibaca</button>
-                    <button class="delete">Hapus Buku</button>
+                    <button id="delete" class="delete">Hapus Buku</button>
                 </div>
 
             </div>
-                
+
             <div class="flex-three">
-                <h2>Selesai Dibaca</h2><br><hr>
+                <h2>Selesai Dibaca</h2><br>
+                <hr>
 
             </div>
 
             <div class="flex-four">
-                <h2>Cari Buku</h2><br><hr>
+                <h2>Cari Buku</h2><br>
+                <hr>
                 <form>
                     <div class="input">
-                      <label>Judul</label><br>
-                      <input class="box" type="text">
+                        <label>Judul</label><br>
+                        <input class="box" type="text">
                     </div>
                     <button class="search" type="submit">Cari Buku!</button>
-                  </form>
+                </form>
             </div>
 
         </div>
     </main>
 
-    <div id="popUp" class="popup">
+    <div id="popUp" class="popup" hidden>
         <h2>Apakah anda yakin ingin menghapus data ini?</h2>
-        <button class="ya">Ya</button><button class="tidak">Tidak</button>
+        <button id="ya" class="ya">Ya</button><button id="tidak" class="tidak">Tidak</button>
     </div>
 
 
@@ -88,4 +93,5 @@
 
     <script src="./js/script.js"></script>
 </body>
+
 </html>
