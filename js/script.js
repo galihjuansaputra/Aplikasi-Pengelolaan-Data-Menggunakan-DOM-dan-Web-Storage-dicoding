@@ -4,8 +4,17 @@ document.addEventListener('DOMContentLoaded', function () {
     event.preventDefault();
     addBook();
   });
+
+  const submitFormSearch = document.getElementById('search-bukus');
+  submitFormSearch.addEventListener('submit', function (event) {
+    event.preventDefault();
+    searchBook();
+  });
+
   loadDataFromStorage();
+
 });
+
 
 // 
 const bukus = [];
@@ -152,8 +161,8 @@ function removeTaskFromCompleted(bookId) {
 }
  
  
-function undoTaskFromCompleted(bukuId) {
-  const bukuTarget = findBook(bukuId);
+function undoTaskFromCompleted(bookId) {
+  const bukuTarget = findBook(bookId);
  
   if (bukuTarget == null) return;
  
@@ -200,6 +209,118 @@ function loadDataFromStorage() {
   document.dispatchEvent(new Event(RENDER_EVENT));
 }
 
+// function searchBook(term) {
+//   var filteredObj = {};
+//   Object.keys(localStorage)
+
+//       .filter(function (key) {
+//           return key.indexOf(term) >= 0;
+//       })
+
+//       .map(function (key) {
+//           filteredObj[key] = localStorage.getItem(key);
+//       });
+
+//   return JSON.stringify(filteredObj);
+
+// }
+
+// console.log(searchBook());
+
+// console.log(localStorage.getItem(STORAGE_KEY).filter());
+
+
+
+// function searchBook(search) {
+//   const bookData = localStorage.getItem(STORAGE_KEY);
+//   const searchString = search.target.value;
+//   const bookFiltered = bookData.filter(data =>{
+//     data.title.includes(searchString);
+//   })
+//   console.log(bookFiltered)
+// }
+
+// const searchBar = document.getElementById('search-bukus');
+
+// searchBar.addEventListener('keyup', (e) => {
+//   const keys = Object.keys(localStorage);
+//   for (let key of keys) {
+//     console.log(`${key}: ${localStorage.getItem(key)}`);
+// }
+
+//   const searchString = e.target.value;
+//   const filteredBukus = keys.filter(buku => {
+//     buku.title.includes(searchString);
+//   });
+//   console.log(filteredBukus);
+// });
+
+
+function searchBook() {
+  const searchTitle = document.getElementById('cariBuku').value.toLowerCase();
+  const daftarBuku = document.getElementsByClassName('book');
+  
+  for (let i = 0; i < daftarBuku.length; i++) {
+    const judulBuku = daftarBuku[i].firstElementChild;
+    if (judulBuku.textContent.toLowerCase().includes(searchTitle)) {
+      daftarBuku[i].classList.remove("hidden");
+    } else {
+      daftarBuku[i].classList.add("hidden");
+    }
+  }
+
+}
+
+document.getElementById('reset').addEventListener('click', loadDataFromStorage);
+
+
+//   const searchForm = document.getElementById("formSearch");
+//   searchForm.addEventListener("submit", (event) => {
+//     event.preventDefault();
+//     searchBook();
+//   });
+
+//   const resetBtn = document.querySelector(".reset-btn");
+//   resetBtn.addEventListener("click", () => {
+//     document.getElementById("pencarian").value = "";
+//     searchBook();
+//   });
+
+// const searchBook = () => {
+//   const searchInput = document.getElementById("pencarian").value.toLowerCase();
+//   const bookItems = document.getElementsByClassName("item");
+
+//   for (let i = 0; i < bookItems.length; i++) {
+//     const itemTitle = bookItems[i].querySelector(".item-title");
+//     if (itemTitle.textContent.toLowerCase().includes(searchInput)) {
+//       bookItems[i].classList.remove("hidden");
+//     } else {
+//       bookItems[i].classList.add("hidden");
+//     }
+//   }
+// };
+
+
+// const daftarBuku = document.getElementById('bukus');
+
+// const searchBar = document.forms['search-bukus'].querySelector('input');
+// searchBar.addEventListener('keyup', function(event) {
+
+//   const term = event.target.value.toLowerCase();
+//   const books = daftarBuku.firstElementChild;
+//   Array.from(books).forEach(function (book) {
+//     const title = book.firstElementChild.textContent; 
+//     if (title.toLowerCase().indexOf(term)!= -1) {
+//       book.style.display = 'block';
+//     } else{
+//       book.style.display = 'none';
+//     }
+
+//   })
+
+// })
+
+
 
 // // mendapatkan element popup msg modal
 
@@ -222,4 +343,3 @@ function loadDataFromStorage() {
 //   popUp.setAttribute('hidden',true);
 // }
 // document.getElementById('ya').addEventListener('click', yesDelete);
-

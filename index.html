@@ -50,8 +50,9 @@
                 <h2>Belum Selesai Dibaca</h2><br>
                 <hr>
 
-                <div id="bukus" class="book">
-                    
+                <div id="bukus">
+                    <div class="book" id="buku-1660637596833">
+                    </div>
                 </div>
 
             </div>
@@ -60,7 +61,7 @@
                 <h2>Selesai Dibaca</h2><br>
                 <hr>
 
-                <div id="completed-bukus" class="book">
+                <div id="completed-bukus">
                     
                 </div>
                 
@@ -69,12 +70,13 @@
             <div class="flex-four">
                 <h2>Cari Buku</h2><br>
                 <hr>
-                <form>
+                <form id="search-bukus">
                     <div class="input">
                         <label>Judul</label><br>
-                        <input class="box" type="text" placeholder="Cari Buku">
+                        <input id="cariBuku" class="box" type="text" placeholder="Cari Buku">
                     </div>
                     <button class="search" type="submit">Cari Buku!</button>
+                    <button class="reset" type="reset" onClick="window.location.reload()" >Reset</button>
                 </form>
             </div>
 
