@@ -89,6 +89,7 @@ function makeBuku(bookObject) {
 
 
   if (bookObject.isCompleted) {
+    const popUp = document.getElementById('popUp');
     const undoButton = document.createElement('button');
     undoButton.classList.add('mark');
     undoButton.innerText = 'Tandai Belum Selesai Dibaca';
@@ -103,7 +104,9 @@ function makeBuku(bookObject) {
  
     trashButton.addEventListener('click', function () {
       removeTaskFromCompleted(bookObject.id);
+      
     });
+    
  
     textContainer.append(undoButton, trashButton);
 
@@ -152,12 +155,24 @@ function findBook(bookId) {
 
 function removeTaskFromCompleted(bookId) {
   const bukuTarget = findBookIndex(bookId);
+  const popUp = document.getElementById('popUp');
+  popUp.removeAttribute('hidden');
+  const tidak = document.getElementById('tidak');
+  tidak.onclick = function () {
+    popUp.setAttribute('hidden', true);
+  }
+  const ya = document.getElementById('ya');
+  ya.onclick = function () {
+    if (bukuTarget === -1) return;
  
-  if (bukuTarget === -1) return;
- 
-  bukus.splice(bukuTarget, 1);
-  document.dispatchEvent(new Event(RENDER_EVENT));
-  saveData();
+    bukus.splice(bukuTarget, 1);
+    document.dispatchEvent(new Event(RENDER_EVENT));
+    saveData();
+    popUp.setAttribute('hidden', true);
+  }
+    
+
+
 }
  
  
@@ -209,52 +224,6 @@ function loadDataFromStorage() {
   document.dispatchEvent(new Event(RENDER_EVENT));
 }
 
-// function searchBook(term) {
-//   var filteredObj = {};
-//   Object.keys(localStorage)
-
-//       .filter(function (key) {
-//           return key.indexOf(term) >= 0;
-//       })
-
-//       .map(function (key) {
-//           filteredObj[key] = localStorage.getItem(key);
-//       });
-
-//   return JSON.stringify(filteredObj);
-
-// }
-
-// console.log(searchBook());
-
-// console.log(localStorage.getItem(STORAGE_KEY).filter());
-
-
-
-// function searchBook(search) {
-//   const bookData = localStorage.getItem(STORAGE_KEY);
-//   const searchString = search.target.value;
-//   const bookFiltered = bookData.filter(data =>{
-//     data.title.includes(searchString);
-//   })
-//   console.log(bookFiltered)
-// }
-
-// const searchBar = document.getElementById('search-bukus');
-
-// searchBar.addEventListener('keyup', (e) => {
-//   const keys = Object.keys(localStorage);
-//   for (let key of keys) {
-//     console.log(`${key}: ${localStorage.getItem(key)}`);
-// }
-
-//   const searchString = e.target.value;
-//   const filteredBukus = keys.filter(buku => {
-//     buku.title.includes(searchString);
-//   });
-//   console.log(filteredBukus);
-// });
-
 
 function searchBook() {
   const searchTitle = document.getElementById('cariBuku').value.toLowerCase();
@@ -271,62 +240,11 @@ function searchBook() {
 
 }
 
-document.getElementById('reset').addEventListener('click', loadDataFromStorage);
-
-
-//   const searchForm = document.getElementById("formSearch");
-//   searchForm.addEventListener("submit", (event) => {
-//     event.preventDefault();
-//     searchBook();
-//   });
-
-//   const resetBtn = document.querySelector(".reset-btn");
-//   resetBtn.addEventListener("click", () => {
-//     document.getElementById("pencarian").value = "";
-//     searchBook();
-//   });
-
-// const searchBook = () => {
-//   const searchInput = document.getElementById("pencarian").value.toLowerCase();
-//   const bookItems = document.getElementsByClassName("item");
-
-//   for (let i = 0; i < bookItems.length; i++) {
-//     const itemTitle = bookItems[i].querySelector(".item-title");
-//     if (itemTitle.textContent.toLowerCase().includes(searchInput)) {
-//       bookItems[i].classList.remove("hidden");
-//     } else {
-//       bookItems[i].classList.add("hidden");
-//     }
-//   }
-// };
-
-
-// const daftarBuku = document.getElementById('bukus');
-
-// const searchBar = document.forms['search-bukus'].querySelector('input');
-// searchBar.addEventListener('keyup', function(event) {
-
-//   const term = event.target.value.toLowerCase();
-//   const books = daftarBuku.firstElementChild;
-//   Array.from(books).forEach(function (book) {
-//     const title = book.firstElementChild.textContent; 
-//     if (title.toLowerCase().indexOf(term)!= -1) {
-//       book.style.display = 'block';
-//     } else{
-//       book.style.display = 'none';
-//     }
-
-//   })
-
-// })
-
-
-
 // // mendapatkan element popup msg modal
 
 // const popUp = document.getElementById('popUp');
 
-// // function delete
+// function delete
 // function deleteDataBuku() {
 //   popUp.removeAttribute('hidden');
 // }
@@ -340,6 +258,8 @@ document.getElementById('reset').addEventListener('click', loadDataFromStorage);
 
 // // function yes delete
 // function yesDelete() {
+   
+// removeTaskFromCompleted(bookObject.id);
 //   popUp.setAttribute('hidden',true);
 // }
 // document.getElementById('ya').addEventListener('click', yesDelete);
